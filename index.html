@@ -1,16 +1,995 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Jakub Kondraciuk</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="main.css">
-    <script async src="main.js"></script>
+    <style>
+        /* --- Scroll Reveal Styles --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.9s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.9s cubic-bezier(0.2, 0.9, 0.3, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Opóźnienia dla efektu kaskadowego (opcjonalnie) */
+        .reveal-1 {
+            transition-delay: 0.05s;
+        }
+        .reveal-2 {
+            transition-delay: 0.08s;
+        }
+        .reveal-3 {
+            transition-delay: 0.11s;
+        }
+        .reveal-4 {
+            transition-delay: 0.14s;
+        }
+        .reveal-5 {
+            transition-delay: 0.17s;
+        }
+        .reveal-6 {
+            transition-delay: 0.20s;
+        }
+        .reveal-7 {
+            transition-delay: 0.23s;
+        }
+        .reveal-8 {
+            transition-delay: 0.26s;
+        }
+        .reveal-9 {
+            transition-delay: 0.29s;
+        }
+        .reveal-10 {
+            transition-delay: 0.32s;
+        }
+
+        /* Usuwamy efekt na mniejszych ekranach jeśli przeszkadza (opcjonalnie) */
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+    </style>
+    <script async src="main.js">
+    </script>
 </head>
+
 <body>
-    <header>
-        <h1 class="text-blue-600">Welcome!</h1>
+    <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-xl border-b border-gray-200">
+        <nav class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+            <a href="#" class="group flex flex-col">
+                <span class="text-xl font-bold tracking-tight text-gray-900">
+                    Jakub Kondraciuk
+                </span>
+                <span class="text-xs font-mono text-blue-600 tracking-widest">
+                    ELECTRICAL ENGINEER
+                </span>
+            </a>
+            <ul class="hidden md:flex items-center gap-10 text-sm font-medium">
+                <li>
+                    <a href="#about" class="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition">
+                        <span class="text-xs font-mono text-blue-600">
+                            01
+                        </span>
+                        O mnie
+                    </a>
+                </li>
+                <li>
+                    <a href="#projects" class="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition">
+                        <span class="text-xs font-mono text-blue-600">
+                            02
+                        </span>
+                        Projekty
+                    </a>
+                </li>
+                <li>
+                    <a href="#skills" class="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition">
+                        <span class="text-xs font-mono text-blue-600">
+                            03
+                        </span>
+                        Umiejętności
+                    </a>
+                </li>
+                <li>
+                    <a href="#contact" class="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition">
+                        <span class="text-xs font-mono text-blue-600">
+                            04
+                        </span>
+                        Kontakt
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </header>
+
+    <main>
+        <section class="relative h-[85vh]">
+            <img src="img/header.jpg" alt="Elektroenergetyka" class="w-full h-full object-cover object-[50%_30%] scale-100">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/20"></div>
+            <div class="absolute inset-0 opacity-20 bg-[linear-gradient(90deg,transparent_49%,white_50%,transparent_51%),linear-gradient(0deg,transparent_49%,white_50%,transparent_51%)] bg-[size:80px_80px]">
+            </div>
+            <div class="absolute inset-0 flex items-center px-8 md:px-20">
+                <div class="max-w-4xl text-white">
+                    <div class="flex items-center gap-4 mb-6">
+                        <span class="w-16 h-[2px] bg-blue-400"></span>
+                        <span class="uppercase tracking-[0.4em] text-sm text-blue-300">
+                            Electrical Engineering
+                        </span>
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight">
+                        Inżynier
+                        <br>
+                        <span class="text-blue-300">
+                            elektrotechniki
+                        </span>
+                    </h1>
+                    
+                    <p class="mt-6 text-xl md:text-2xl text-gray-200 max-w-2xl leading-relaxed">
+                        Projektowanie, analiza i rozwój
+                        nowoczesnych systemów elektroenergetycznych.
+                    </p>
+                    <div class="mt-10 flex items-center gap-6 text-sm uppercase tracking-widest text-gray-300">
+                        <span>Elektroenergetyka</span>
+                        <span class="text-blue-400">/</span>
+                        <span>Projektowanie</span>
+                        <span class="text-blue-400">/</span>
+                        <span>Instalacje elektryczne</span>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute bottom-12 right-12">
+                <a href="assets/Jakub_Kondraciuk_CV.pdf" download class="group flex items-center gap-4 text-white border border-white/40 px-8 py-4 rounded-full hover:bg-white hover:text-black transition-all duration-300">
+                    <span>
+                        Pobierz CV
+                    </span>
+                    <span class="group-hover:translate-x-2 transition">
+                        →
+                    </span>
+                </a>
+            </div>
+            <div>
+                <a href="#about" class="absolute bottom-10 left-6 md:left-12 flex items-center gap-2 text-white/40 text-xs font-mono">
+                    <span class="w-8 h-[1px] bg-white/40"></span>
+                    <span>Przewiń w dół</span>
+                    <i class="fas fa-chevron-down animate-bounce ml-1"></i>
+                </a>
+            </div>
+        </section>
+
+        <section class="bg-gray-50">
+            <div class="max-w-5xl mx-auto px-6">
+                <div class="flex flex-col gap-6">
+                    <section id="about" class="relative pt-24 mt-12 overflow-hidden">
+                        <div class="max-w-6xl mx-auto px-6">
+                            <div class="mb-16 reveal reveal-1">
+                                <p class="uppercase tracking-[0.4em] text-sm text-blue-600 mb-4">
+                                    Portfolio / About Me
+                                </p>
+                                <h2 class="text-5xl font-bold text-gray-900">
+                                    O mnie
+                                </h2>
+                                <div class="mt-6 w-32 h-1 bg-blue-600">
+                                </div>
+                            </div>
+                            <div class="gap-14 mb-10 reveal reveal-2">
+                                <div>
+                                    <h3 class="text-3xl font-bold mb-10">
+                                        Wstęp
+                                    </h3>
+                                    <p class="text-gray-600 leading-relaxed">
+                                        Jestem inżynierem elektroenergetyki zainteresowanym
+                                        projektowaniem, analizą oraz rozwojem nowoczesnych
+                                        systemów elektroenergetycznych. Szczególnie interesują
+                                        mnie zagadnienia związane z sieciami elektroenergetycznymi,
+                                        efektywnością energetyczną oraz wykorzystaniem nowych
+                                        technologii w energetyce.
+                                    </p>
+                                    <p class="text-gray-600 leading-relaxed mt-5">
+                                        W pracy stawiam na dokładność, analizę problemów oraz
+                                        praktyczne podejście do rozwiązywania zagadnień
+                                        technicznych. Rozwijam swoje umiejętności poprzez
+                                        realizację projektów inżynierskich oraz pracę z
+                                        narzędziami wykorzystywanymi w branży
+                                        elektroenergetycznej.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="mb-10 reveal reveal-3">
+                                <h3 class="text-3xl font-bold mb-10">
+                                    Edukacja
+                                </h3>
+                                <div class="relative border-l-2 border-blue-600 ml-4 space-y-14">
+                                    <div class="relative pl-10">
+                                        <div class="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-blue-600">
+                                        </div>
+                                        <p class="text-blue-600 text-sm font-mono">
+                                            02.2025 - 06.2026
+                                        </p>
+                                        <h4 class="text-xl font-semibold mt-2">
+                                            Politechnika Lubelska
+                                        </h4>
+                                        <p class="text-gray-600 mt-2">
+                                            Magister -
+                                            "Inżynierskie zastosowania informatyki
+                                            w elektrotechnice"
+                                        </p>
+                                    </div>
+                                    <div class="relative pl-10">
+                                        <div class="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-blue-600">
+                                        </div>
+                                        <p class="text-blue-600 text-sm font-mono">
+                                            10.2021 - 02.2025
+                                        </p>
+                                        <h4 class="text-xl font-semibold mt-2">
+                                            Politechnika Lubelska
+                                        </h4>
+                                        <p class="text-gray-600 mt-2">
+                                            Inżynier -
+                                            "Inżynierskie zastosowania informatyki
+                                            w elektrotechnice"
+                                        </p>
+                                    </div>
+                                    <div class="relative pl-10">
+                                        <div class="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-blue-600">
+                                        </div>
+                                        <p class="text-blue-600 text-sm font-mono">
+                                            09.2016 - 06.2021
+                                        </p>
+                                        <h4 class="text-xl font-semibold mt-2">
+                                            Zespół Szkół im. Króla Kazimierza Jagiellończyka
+                                            w Łęcznej
+                                        </h4>
+                                        <p class="text-gray-600 mt-2">
+                                            Technik informatyk -
+                                            kwalifikacje EE08 i EE09
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="reveal reveal-4">
+                                <h3 class="text-3xl font-bold mb-12">
+                                    Doświadczenie
+                                </h3>
+                                <div class="relative border-l-2 border-blue-600 ml-4 space-y-14">
+                                    <div class="relative pl-10">
+                                        <div class="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-blue-600">
+                                        </div>
+                                        <p class="text-blue-600 text-sm font-mono">
+                                            07.2024 - 10.2024
+                                        </p>
+                                        <h4 class="text-xl font-semibold mt-2">
+                                            Młodszy specjalista ds. elektroenergetyki
+                                        </h4>
+                                        <p class="text-gray-500 mt-1">
+                                            SG ENERGY, Lublin
+                                        </p>
+                                        <p class="text-gray-600 leading-relaxed mt-4">
+                                            Wykonywałem konserwację, modernizację oraz
+                                            diagnostykę stacji SN/nN i infrastruktury
+                                            elektroenergetycznej zgodnie z dokumentacją
+                                            techniczną oraz obowiązującymi normami.
+                                            <br><br>
+                                            Pracowałem na podstawie schematów ideowych
+                                            i montażowych. Przeprowadzałem przeglądy urządzeń
+                                            elektroenergetycznych, analizowałem ich stan
+                                            techniczny oraz sporządzałem dokumentację
+                                            powykonawczą.
+                                        </p>
+                                    </div>
+                                    <div class="relative pl-10">
+                                        <div class="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-blue-600">
+                                        </div>
+                                        <p class="text-blue-600 text-sm font-mono">
+                                            07.2023 - 12.2023
+                                        </p>
+                                        <h4 class="text-xl font-semibold mt-2">
+                                            Monter instalacji elektrycznych
+                                            i teletechnicznych
+                                        </h4>
+                                        <p class="text-gray-500 mt-1">
+                                            Elpie, Lublin
+                                        </p>
+                                        <p class="text-gray-600 leading-relaxed mt-4">
+                                            Analizowałem dokumentację techniczną, w tym
+                                            schematy, rysunki oraz opisy techniczne w celu
+                                            planowania tras kablowych i rozmieszczenia
+                                            urządzeń.
+                                            <br><br>
+                                            Wykonywałem montaż instalacji elektrycznych
+                                            i teletechnicznych obejmujący prowadzenie
+                                            przewodów, montaż osprzętu elektrycznego,
+                                            okablowanie systemów CCTV oraz instalacji
+                                            kontroli dostępu.
+                                        </p>
+                                    </div>
+                                    <div class="relative pl-10">
+                                        <div class="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-blue-600">
+                                        </div>
+                                        <p class="text-blue-600 text-sm font-mono">
+                                            06.2019 - 03.2020
+                                        </p>
+                                        <h4 class="text-xl font-semibold mt-2">
+                                            Programista aplikacji internetowych
+                                        </h4>
+                                        <p class="text-gray-500 mt-1">
+                                            Gloo, Łęczna
+                                        </p>
+                                        <p class="text-gray-600 leading-relaxed mt-4">
+                                            Tworzyłem aplikacje webowe zgodnie z dokumentacją
+                                            projektową. Zajmowałem się optymalizacją wydajności
+                                            aplikacji oraz pracą z systemem kontroli wersji Git.
+                                            <br><br>
+                                            Realizowałem projekty związane między innymi
+                                            z aplikacjami do obsługi zamówień.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div id="projects" class="pt-24 bg-gray-50">
+                        <div class="mb-20 reveal reveal-1">
+                            <p class="uppercase tracking-[0.4em] text-sm text-blue-600 mb-4">
+                                Portfolio / Projects
+                            </p>
+                            <h2 class="text-5xl font-bold text-gray-900">
+                                Projekty
+                            </h2>
+                            <div class="mt-6 w-32 h-1 bg-blue-600">
+                            </div>
+                        </div>
+                        <div class="max-w-6xl mx-auto px-6">
+                            <div class="relative rounded-2xl overflow-hidden shadow-lg h-[500px] group reveal reveal-2">
+                                <img src="img/p1.png" alt="Projekt elektroenergetyczny" class="absolute inset-0 w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-black/50">
+                                </div>
+                                <div class="relative z-10 h-full flex flex-col justify-end p-8 text-white">
+                                    <h3 class="text-3xl font-bold mb-3">
+                                        Projekt instalacji elektrycznej budynku jednorodzinnego wraz z przyłączem
+                                        kablowym
+                                    </h3>
+                                    <p class="text-gray-200 leading-relaxed mb-5">
+                                        Projekt obejmuje kompleksowe opracowanie instalacji elektrycznej dla budynku
+                                        jednorodzinnego wraz z wykonaniem przyłącza kablowego nN. Dokumentacja
+                                        zawiera analizę zapotrzebowania mocy, dobór kabli, przewodów i zabezpieczeń,
+                                        obliczenia zwarciowe, sprawdzenie spadków napięcia oraz weryfikację
+                                        selektywności zabezpieczeń zgodnie z obowiązującymi normami. W projekcie
+                                        uwzględniono zasilanie wszystkich obwodów budynku, rozdzielnicę główną,
+                                        ochronę przeciwporażeniową i przeciwprzepięciową oraz zestawienie
+                                        materiałów.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Elektroenergetyka
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Instalacje elektryczne
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Obliczenia elektryczne
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Dobór zabezpieczeń
+                                        </span>
+                                    </div>
+                                    <a href="projects/projekt_instalacji_Kondraciuk.pdf" target="_blank" class="inline-flex w-fit px-6 py-3 bg-white text-gray-900 rounded-lg font-semibold hover:bg-gray-100 transition">
+                                        Zobacz projekt (.pdf)
+                                    </a>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="relative rounded-2xl overflow-hidden shadow-lg h-[500px] group reveal reveal-3">
+                                <img src="img/p2.png" alt="Projekt elektroenergetyczny" class="absolute inset-0 w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-black/50">
+                                </div>
+                                <div class="relative z-10 h-full flex flex-col justify-end p-8 text-white">
+                                    <h3 class="text-3xl font-bold mb-3">
+                                        Projekt oświetlenia kampusu Politechniki Lubelskiej
+                                    </h3>
+                                    <p class="text-gray-200 leading-relaxed mb-5">
+                                        Projekt kompleksowego oświetlenia terenu kampusu Politechniki Lubelskiej
+                                        wykonany w programie DIALux. Opracowanie obejmuje analizę rozmieszczenia
+                                        opraw oświetleniowych, dobór urządzeń oraz symulację parametrów świetlnych
+                                        dla przestrzeni zewnętrznych. Dokumentacja zawiera zestawienie zastosowanych
+                                        opraw, karty katalogowe producentów, układ rozmieszczenia punktów świetlnych
+                                        oraz wyniki obliczeń fotometrycznych.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Projekt oświetlenia
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            DIALux
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Oświetlenie zewnętrzne
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Analiza fotometryczna
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Wizualizacja 3D
+                                        </span>
+                                    </div>
+                                    <div class="flex gap-3">
+                                        <a href="projects/projekt_oswietlenia_Kondraciuk.pdf" target="_blank" class="inline-flex w-fit px-6 py-3 bg-white text-gray-900 rounded-lg font-semibold hover:bg-gray-100 transition">
+                                            Zobacz projekt (.pdf)
+                                        </a>
+                                        <a href="projects/projekt_oswietlenia_Kondraciuk.evo" target="_blank" class="inline-flex w-fit px-6 py-3 bg-white text-gray-900 rounded-lg font-semibold hover:bg-gray-100 transition">
+                                            Pobierz plik projektu (.evo)
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="relative rounded-2xl overflow-hidden shadow-lg h-[500px] group reveal reveal-4">
+                                <img src="img/p3.png" alt="Projekt elektroenergetyczny" class="absolute inset-0 w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-black/50">
+                                </div>
+                                <div class="relative z-10 h-full flex flex-col justify-end p-8 text-white">
+                                    <h3 class="text-3xl font-bold mb-3">
+                                        Modelowanie i symulacja komputerowa klasycznej żarówki wolframowej w środowisku
+                                        Ansys
+                                    </h3>
+                                    <p class="text-gray-200 leading-relaxed mb-5">
+                                        Projekt przedstawia proces tworzenia modelu klasycznej żarówki wolframowej oraz
+                                        przeprowadzenie symulacji komputerowej w programie Ansys. Model 3D został
+                                        wykonany w programie Inventor z uwzględnieniem najważniejszych elementów
+                                        konstrukcyjnych, takich jak styki elektryczne, izolacja ceramiczna, elektroda,
+                                        drut wolframowy oraz szklana bańka. Następnie przygotowany model został poddany
+                                        analizie elektrycznej w celu sprawdzenia rozkładu napięcia, strat
+                                        rezystancyjnych, gęstości energii oraz temperatury elementów przewodzących.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Symulacje komputerowe
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Inventor
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Ansys
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Analiza elektryczna
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Analiza termiczna
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            FEM
+                                        </span>
+                                    </div>
+                                    <div class="flex gap-3">
+                                        <a href="projects/projekt_zarowki_Kondraciuk.pdf" target="_blank" class="inline-flex w-fit px-6 py-3 bg-white text-gray-900 rounded-lg font-semibold hover:bg-gray-100 transition">
+                                            Zobacz projekt (.pdf)
+                                        </a>
+                                        <a href="projects/projekt_zarowki_Kondraciuk.rar" target="_blank" class="inline-flex w-fit px-6 py-3 bg-white text-gray-900 rounded-lg font-semibold hover:bg-gray-100 transition">
+                                            Pobierz plik projektu (.rar)
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="relative rounded-2xl overflow-hidden shadow-lg h-[500px] group reveal reveal-5">
+                                <img src="img/p4.png" alt="Projekt elektroenergetyczny" class="absolute inset-0 w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-black/50">
+                                </div>
+                                <div class="relative z-10 h-full flex flex-col justify-end p-8 text-white">
+                                    <h3 class="text-3xl font-bold mb-3">
+                                        Analiza strat mocy w układach kriogenicznych chłodzonych kontaktowo (praca
+                                        magisterska)
+                                    </h3>
+                                    <p class="text-gray-200 leading-relaxed mb-5">
+                                        Praca dotyczy analizy strat mocy w kontaktowo chłodzonych układach
+                                        kriogenicznych. W ramach pracy dokonano przeglądu zagadnień związanych z
+                                        kriogeniką, termodynamiką, wymianą ciepła oraz konstrukcją układów
+                                        kriogenicznych. Przeprowadzono również badania wpływu zastosowania ekranów
+                                        miedzianych oraz izolacji wielowarstwowej MLI na ograniczenie strat cieplnych w
+                                        głowicy kriochłodziarki. Wyniki wykazały znaczącą poprawę efektywności
+                                        energetycznej układu poprzez redukcję strat wynikających z przewodnictwa i
+                                        promieniowania cieplnego.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Energetyka
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Kriogenika
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Straty mocy
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Izolacja termiczna
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Analiza eksperymentalna
+                                        </span>
+                                    </div>
+                                    <a href="projects/projekt_analiza_strat_mocy_Kondraciuk.pdf" target="_blank" class="inline-flex w-fit px-6 py-3 bg-white text-gray-900 rounded-lg font-semibold hover:bg-gray-100 transition">
+                                        Zobacz projekt (.pdf)
+                                    </a>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="relative rounded-2xl overflow-hidden shadow-lg h-[500px] group reveal reveal-6">
+                                <div class="absolute top-6 left-6 z-20 flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white font-semibold text-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 0 0-4-4h-1M9 20H4v-2a4 4 0 0 1 4-4h1m4-4a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm6 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                    </svg>
+                                    Projekt grupowy
+                                </div>
+                                <img src="img/p5.png" alt="Projekt elektroenergetyczny" class="absolute inset-0 w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-black/50">
+                                </div>
+                                <div class="relative z-10 h-full flex flex-col justify-end p-8 text-white">
+                                    <h3 class="text-3xl font-bold mb-3">
+                                        Projekt układu energoelektronicznego zasilania silnika DC z regulacją napięcia i
+                                        zabezpieczeniami w Matlab Simulink
+                                    </h3>
+                                    <p class="text-gray-200 leading-relaxed mb-5">
+                                        Projekt przedstawia zaprojektowany w środowisku Matlab Simulink układ
+                                        energoelektroniczny składający się z sieci zasilającej, prostownika
+                                        jednofazowego, przetwornicy obniżającej napięcie typu Buck oraz układu
+                                        sterowania silnikiem DC z mostkiem H. System utrzymuje napięcie wyjściowe na
+                                        poziomie 210 V oraz stabilizuje prędkość silnika na poziomie 1200 obr/min przy
+                                        zmiennym obciążeniu. Zastosowane zabezpieczenia chronią układ przed nadmiernym
+                                        prądem (32 A) oraz przekroczeniem dopuszczalnej prędkości obrotowej.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Energoelektronika
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Matlab / Simulink
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Silnik DC
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Przetwornica Buck
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Sterownanie PWM
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Układ zabezpieczeń
+                                        </span>
+                                    </div>
+                                    <a href="projects/projekt_sterowanie_silnikiem_Kondraciuk.pdf" target="_blank" class="inline-flex w-fit px-6 py-3 bg-white text-gray-900 rounded-lg font-semibold hover:bg-gray-100 transition">
+                                        Zobacz projekt (.pdf)
+                                    </a>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="relative rounded-2xl overflow-hidden shadow-lg h-[500px] group reveal reveal-7">
+                                <div class="absolute top-6 left-6 z-20 flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white font-semibold text-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 0 0-4-4h-1M9 20H4v-2a4 4 0 0 1 4-4h1m4-4a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm6 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                    </svg>
+                                    Projekt grupowy
+                                </div>
+                                <img src="img/p6.png" alt="Projekt elektroenergetyczny" class="absolute inset-0 w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-black/50">
+                                </div>
+                                <div class="relative z-10 h-full flex flex-col justify-end p-8 text-white">
+                                    <h3 class="text-3xl font-bold mb-3">
+                                        Automatyczny barman do drinków sterowany aplikacją mobilną (praca inżynierska)
+                                    </h3>
+                                    <p class="text-gray-200 leading-relaxed mb-5">
+                                        Projekt przedstawia prototyp automatycznego barmana umożliwiającego
+                                        przygotowywanie drinków za pomocą aplikacji mobilnej. Urządzenie wykorzystuje
+                                        mikrokontroler Arduino Mega 2560, osiem pompek dozujących oraz komunikację
+                                        Bluetooth do automatycznego przygotowania wybranego napoju. Aplikacja mobilna
+                                        pozwala użytkownikowi wybierać gotowe przepisy, tworzyć własne kompozycje oraz
+                                        sterować procesem przygotowywania drinka. Projekt łączy zagadnienia elektroniki,
+                                        automatyki, programowania mikrokontrolerów i tworzenia aplikacji mobilnych.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Automatyka
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Arduino
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Systemy wbudowane
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Sterowanie urządzeniami
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            React Native
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            TypeScript
+                                        </span>
+                                    </div>
+                                    <a href="projects/projekt_barman_Kondraciuk.pdf" target="_blank" class="inline-flex w-fit px-6 py-3 bg-white text-gray-900 rounded-lg font-semibold hover:bg-gray-100 transition">
+                                        Zobacz projekt (.pdf)
+                                    </a>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="relative rounded-2xl overflow-hidden shadow-lg h-[500px] group reveal reveal-8">
+                                <div class="absolute top-6 left-6 z-20 flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white font-semibold text-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 0 0-4-4h-1M9 20H4v-2a4 4 0 0 1 4-4h1m4-4a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm6 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                    </svg>
+                                    Projekt grupowy
+                                </div>
+                                <img src="img/p7.png" alt="Projekt elektroenergetyczny" class="absolute inset-0 w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-black/50">
+                                </div>
+                                <div class="relative z-10 h-full flex flex-col justify-end p-8 text-white">
+                                    <h3 class="text-3xl font-bold mb-3">
+                                        Projekt instalacji inteligentnego domu z wykorzystaniem systemu KNX – sterowanie
+                                        ogrzewaniem, oświetleniem i automatyką budynkową
+                                    </h3>
+                                    <p class="text-gray-200 leading-relaxed mb-5">
+                                        Projekt przedstawia instalację inteligentnego domu opartą na systemie KNX.
+                                        Obejmuje sterowanie zaworem przełączającym źródło ciepłej wody, automatyzację
+                                        oświetlenia, żaluzji oraz wykorzystanie czujników ruchu i zmierzchu. Celem
+                                        projektu jest zwiększenie komfortu użytkowników oraz poprawa efektywności
+                                        energetycznej budynku.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Automatyka budynkowa
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            KNX
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Smart Home
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Sterowanie urządzeniami
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Instalacje inteligentne
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            ETS5
+                                        </span>
+                                    </div>
+                                    <a href="projects/projekt_smart_home_Kondraciuk.pdf" target="_blank" class="inline-flex w-fit px-6 py-3 bg-white text-gray-900 rounded-lg font-semibold hover:bg-gray-100 transition">
+                                        Zobacz projekt (.pdf)
+                                    </a>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="relative rounded-2xl overflow-hidden shadow-lg h-[500px] group reveal reveal-9">
+                                <img src="img/p8.png" alt="Projekt elektroenergetyczny" class="absolute inset-0 w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-black/50">
+                                </div>
+                                <div class="relative z-10 h-full flex flex-col justify-end p-8 text-white">
+                                    <h3 class="text-3xl font-bold mb-3">
+                                        Certyfikat zgodności CE dla rozdzielnic elektrycznych niskiego napięcia
+                                    </h3>
+                                    <p class="text-gray-200 leading-relaxed mb-5">
+                                        Projekt polegał na opracowaniu własnego certyfikatu zgodności CE dla urządzeń
+                                        elektrycznych na wzór dokumentacji stosowanej w branży elektroenergetycznej.
+                                        Dokument został przygotowany dla rozdzielnic elektrycznych niskiego napięcia,
+                                        uwzględniając najważniejsze elementy formalne, takie jak dane producenta i
+                                        dostawcy, oznaczenie wyrobu, parametry techniczne, odniesienie do norm
+                                        zharmonizowanych oraz informacje dotyczące zgodności z wymaganiami Unii
+                                        Europejskiej.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Certyfikat CE
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Dokumentacja techniczna
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Elektrotechnika
+                                        </span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
+                                            Normy
+                                        </span>
+                                    </div>
+                                    <a href="projects/projekt_certyfikat_CE_Kondraicuk.pdf" target="_blank" class="inline-flex w-fit px-6 py-3 bg-white text-gray-900 rounded-lg font-semibold hover:bg-gray-100 transition">
+                                        Zobacz projekt (.pdf)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <section id="skills" class="pt-24 bg-gray-50">
+                            <div class="max-w-6xl mx-auto px-6">
+                                <div class="mb-16 reveal reveal-1">
+                                    <p class="uppercase tracking-[0.4em] text-sm text-blue-600 mb-4">
+                                        Portfolio / Skills
+                                    </p>
+                                    <h2 class="text-5xl font-bold text-gray-900">
+                                        Umiejętności
+                                    </h2>
+                                    <div class="mt-6 w-32 h-1 bg-blue-600">
+                                    </div>
+                                </div>
+                                <div class="space-y-10">
+                                    <div class="reveal reveal-2">
+                                        <h3 class="text-2xl font-semibold mb-4">
+                                            Języki
+                                        </h3>
+                                        <div class="flex flex-wrap gap-4">
+                                            <div class="bg-white shadow-md rounded-xl px-5 py-4 flex items-center gap-3">
+                                                <img src="icons/1.png" alt="PL" class="w-6 h-6">
+                                                <div>
+                                                    <p class="font-semibold">Polski</p>
+                                                    <p class="text-gray-500 text-sm">Ojczysty</p>
+                                                </div>
+                                            </div>
+                                            <div class="bg-white shadow-md rounded-xl px-5 py-4 flex items-center gap-3">
+                                                <img src="icons/2.png" alt="EN" class="w-6 h-6">
+                                                <div>
+                                                    <p class="font-semibold">Angielski</p>
+                                                    <p class="text-gray-500 text-sm">B2/C1</p>
+                                                </div>
+                                            </div>
+                                            <div class="bg-white shadow-md rounded-xl px-5 py-4 flex items-center gap-3">
+                                                <img src="icons/3.png" alt="DE" class="w-6 h-6">
+                                                <div>
+                                                    <p class="font-semibold">Niemiecki</p>
+                                                    <p class="text-gray-500 text-sm">A2</p>
+                                                </div>
+                                            </div>
+                                            <div class="bg-white shadow-md rounded-xl px-5 py-4 flex items-center gap-3">
+                                                <img src="icons/4.png" alt="FR" class="w-6 h-6">
+                                                <div>
+                                                    <p class="font-semibold">Francuski</p>
+                                                    <p class="text-gray-500 text-sm">A2</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="reveal reveal-3">
+                                        <h3 class="text-2xl font-semibold mb-4">
+                                            Uprawnienia
+                                        </h3>
+                                        <div class="flex flex-wrap gap-4">
+                                            <div class="bg-white shadow-md rounded-xl px-5 py-4 flex items-center gap-3">
+                                                <span class="text-xl">⚡</span>
+                                                <div>
+                                                    <p class="font-semibold">SEP</p>
+                                                    <p class="text-gray-500 text-sm">do 1 kV</p>
+                                                </div>
+                                            </div>
+                                            <div class="bg-white shadow-md rounded-xl px-5 py-4 flex items-center gap-3">
+                                                <span class="text-xl">🚗</span>
+                                                <div>
+                                                    <p class="font-semibold">Prawo jazdy</p>
+                                                    <p class="text-gray-500 text-sm">Kat. B</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="reveal reveal-4">
+                                        <h3 class="text-2xl font-semibold mb-4">
+                                            Certyfikaty
+                                        </h3>
+                                        <div class="flex flex-wrap gap-4">
+                                            <div class="bg-white shadow-md rounded-xl px-5 py-4 flex items-center gap-3">
+                                                <span class="text-xl">🎓</span>
+                                                <div>
+                                                    <p class="font-semibold">
+                                                        AutoCAD - poziom podstawowy
+                                                    </p>
+                                                    <p class="text-gray-500 text-sm">
+                                                        Elpro
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="bg-white shadow-md rounded-xl px-5 py-4 flex items-center gap-3">
+                                                <span class="text-xl">🎓</span>
+                                                <div>
+                                                    <p class="font-semibold">
+                                                        AutoCAD - poziom rozszerzony
+                                                    </p>
+                                                    <p class="text-gray-500 text-sm">
+                                                        Elpro
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="bg-white shadow-md rounded-xl px-5 py-4 flex items-center gap-3">
+                                                <span class="text-xl">🎓</span>
+                                                <div>
+                                                    <p class="font-semibold">
+                                                        MATLAB Onramp
+                                                    </p>
+                                                    <p class="text-gray-500 text-sm">
+                                                        MathWorks
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="bg-white shadow-md rounded-xl px-5 py-4 flex items-center gap-3">
+                                                <span class="text-xl">🎓</span>
+                                                <div>
+                                                    <p class="font-semibold">
+                                                        Machine Learning Onramp
+                                                    </p>
+                                                    <p class="text-gray-500 text-sm">
+                                                        MathWorks
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="bg-white shadow-md rounded-xl px-5 py-4 flex items-center gap-3">
+                                                <span class="text-xl">🎓</span>
+                                                <div>
+                                                    <p class="font-semibold">
+                                                        Deep Learning Onramp
+                                                    </p>
+                                                    <p class="text-gray-500 text-sm">
+                                                        MathWorks
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="reveal reveal-5">
+                                        <h3 class="text-2xl font-semibold mb-4">
+                                            Technologie
+                                        </h3>
+                                        <div class="flex flex-wrap gap-4">
+                                            <div class="bg-white shadow-md rounded-xl px-5 py-4">
+                                                AutoCAD
+                                            </div>
+                                            <div class="bg-white shadow-md rounded-xl px-5 py-4">
+                                                DIALux evo
+                                            </div>
+                                            <div class="bg-white shadow-md rounded-xl px-5 py-4">
+                                                MATLAB / Simulink
+                                            </div>
+                                            <div class="bg-white shadow-md rounded-xl px-5 py-4">
+                                                TIA Portal
+                                            </div>
+                                            <div class="bg-white shadow-md rounded-xl px-5 py-4">
+                                                Python
+                                            </div>
+                                            <div class="bg-white shadow-md rounded-xl px-5 py-4">
+                                                Git
+                                            </div>
+                                            <div class="bg-white shadow-md rounded-xl px-5 py-4">
+                                                MS Office
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="contact" class="bg-gray-50 pt-24 overflow-hidden">
+                            <div class="max-w-6xl mx-auto px-6">
+                                <div class="mb-16 reveal reveal-1">
+                                    <p class="uppercase tracking-[0.4em] text-sm text-blue-600 mb-4">
+                                        Portfolio / Contact
+                                    </p>
+                                    <h2 class="text-5xl font-bold text-gray-900">
+                                        Kontakt
+                                    </h2>
+                                    <div class="mt-6 w-32 h-1 bg-blue-600">
+                                    </div>
+                                </div>
+
+                                <div class="mb-10">
+                                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                        <!-- Email -->
+                                        <a href="mailto:jakub.kondraciuk28@gmail.com"
+                                        class="contact-item bg-white shadow-md rounded-xl px-5 py-4 flex items-center gap-3 hover-lift hover-glow transition-all duration-300 reveal reveal-2">
+                                            <img src="icons/gmail.png" alt="gmail" class="w-5">
+                                            <div>
+                                                <h3 class="font-semibold text-gray-800">Email</h3>
+                                                <p class="text-sm text-gray-600">jakub.kondraciuk28@gmail.com</p>
+                                            </div>
+                                        </a>
+
+                                        <!-- Telefon -->
+                                        <a href="tel:+48576035485"
+                                        class="contact-item bg-white shadow-md rounded-xl px-5 py-4 flex items-center gap-3 hover-lift hover-glow transition-all duration-300 reveal reveal-3">
+                                            <img src="icons/phone.png" alt="phone" class="w-6">
+                                            <div>
+                                                <h3 class="font-semibold text-gray-800">Telefon</h3>
+                                                <p class="text-sm text-gray-600">+48 576 035 485</p>
+                                            </div>
+                                        </a>
+
+                                        <!-- LinkedIn -->
+                                        <a href="https://www.linkedin.com/in/jakub-kondraciuk-628012286/"
+                                        target="_blank"
+                                        class="contact-item bg-white shadow-md rounded-xl px-5 py-4 flex items-center gap-3 hover-lift hover-glow transition-all duration-300 reveal reveal-4">
+                                            <img src="icons/linkedin.png" alt="linkedin" class="w-5">
+                                            <div>
+                                                <h3 class="font-semibold text-gray-800">LinkedIn</h3>
+                                                <p class="text-sm text-gray-600">jakub-kondraciuk</p>
+                                            </div>
+                                        </a>
+
+                                        <!-- GitHub -->
+                                        <a href="https://github.com/jkondraciuk"
+                                        target="_blank"
+                                        class="contact-item bg-white shadow-md rounded-xl px-5 py-4 flex items-center gap-3 hover-lift hover-glow transition-all duration-300 reveal reveal-5">
+                                            <img src="icons/github.svg" alt="github" class="w-5">
+                                            <div>
+                                                <h3 class="font-semibold text-gray-800">GitHub</h3>
+                                                <p class="text-sm text-gray-600">jkondraciuk</p>
+                                            </div>
+                                        </a>
+
+                                        <!-- Discord -->
+                                        <a href="https://discord.gg"
+                                        target="_blank"
+                                        class="contact-item bg-white shadow-md rounded-xl px-5 py-4 flex items-center gap-3 hover-lift hover-glow transition-all duration-300 reveal reveal-6">
+                                            <img src="icons/discord.png" alt="discord" class="w-7">
+                                            <div>
+                                                <h3 class="font-semibold text-gray-800">Discord</h3>
+                                                <p class="text-sm text-gray-600">@jacob.kondraciuk</p>
+                                            </div>
+                                        </a>
+
+                                        <!-- CV -->
+                                        <a href="/cv.pdf"
+                                        target="_blank"
+                                        class="contact-item bg-white shadow-md rounded-xl px-5 py-4 flex items-center gap-3 hover-lift hover-glow transition-all duration-300 reveal reveal-7">
+                                            <img src="icons/cv.png" alt="cv" class="w-5">
+                                            <div>
+                                                <h3 class="font-semibold text-gray-800">CV</h3>
+                                                <p class="text-sm text-gray-600">Pobierz dokument PDF</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <button id="back-to-top" 
+                class="fixed bottom-8 right-8 z-50 w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 opacity-0 invisible translate-y-4 hover:scale-110 flex items-center justify-center group">
+            <i class="fas fa-arrow-up text-xl"></i>
+        </button>
+        
+    </main>
+
+    <footer class="bg-gray-900 text-gray-300 mt-20">
+        <div class="max-w-6xl mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div>
+                    <h3 class="text-xl font-bold text-white">Jacob Kondraciuk</h3>
+                    <p class="text-sm text-gray-400">
+                        Inżynier elektrotechniki • Projektuję, analizuję i rozwijam rozwiązania dla współczesnej
+                        elektroenergetyki.
+                    </p>
+                </div>
+            </div>
+            <hr class="border-gray-700 my-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-3 text-sm text-gray-400">
+                <p>
+                    © 2026 Jacob Kondraciuk. Wszelkie prawa zastrzeżone.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
 </body>
+
 </html>
